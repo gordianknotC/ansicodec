@@ -3,10 +3,10 @@
 .packages
 # Remove the following pattern if you wish to check in your lock file
 pubspec.lock
-.idea
 
 # Conventional directory for build outputs
 build/
 
 # Directory created by dartdoc
 doc/api/
+/.idea/
