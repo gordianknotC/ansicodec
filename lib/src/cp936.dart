@@ -3,41 +3,41 @@ import 'dart:typed_data';
 import 'common.dart';
 import 'table.dart';
 
-final _ANSI_UNICODE_MAP = CP949_UNICODE_MAP;
-const _UNICODE_ANSI_MAP = UNICODE_CP949_MAP;
+final _ANSI_UNICODE_MAP = CP936_UNICODE_MAP;
+const _UNICODE_ANSI_MAP = UNICODE_CP936_MAP;
 
 
 
-class CP949DecoderConverter extends Converter<List<int>, String> {
-   const CP949DecoderConverter();
+class CP936DecoderConverter extends Converter<List<int>, String> {
+   const CP936DecoderConverter();
    
    String convert(List<int> encoded) {
-      // cp950 to unicode
+      // cp936 to unicode
       return pDecoderConvert(encoded, _ANSI_UNICODE_MAP);
-      //return String.fromCharCodes(encoded.map((e) => CP949_UNICODE_MAP[e] ?? e));
+      //return String.fromCharCodes(encoded.map((e) => CP936_UNICODE_MAP[e] ?? e));
    }
 }
 
-class CP949EncoderConverter extends Converter<String, List<int>> {
-   const CP949EncoderConverter();
+class CP936EncoderConverter extends Converter<String, List<int>> {
+   const CP936EncoderConverter();
    
    List<int> convert(String input) {
-      // unicode to cp950
+      // unicode to cp936
       return pEncoderConvert(input, _UNICODE_ANSI_MAP);
-      //return input.codeUnits.map((e) => UNICODE_CP949_MAP[e] ?? e).toList();
+      //return input.codeUnits.map((e) => UNICODE_CP936_MAP[e] ?? e).toList();
    }
 }
 
 
 
-class CP949Codec  implements AnsiCodecSketch  {
-   const CP949Codec();
+class CP936Codec  implements AnsiCodecSketch  {
+   const CP936Codec();
    
    @override
-   CP949DecoderConverter get decoder => CP949DecoderConverter();
+   CP936DecoderConverter get decoder => CP936DecoderConverter();
    
    @override
-   CP949EncoderConverter get encoder => CP949EncoderConverter();
+   CP936EncoderConverter get encoder => CP936EncoderConverter();
    
    @override
    String decode(List<int> encoded) {
